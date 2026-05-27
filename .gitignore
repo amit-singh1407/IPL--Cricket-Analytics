@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Vite
+node_modules/
+dist/
+coverage/
+package-lock.json
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project artifacts
+backend/ml/artifacts/
+backend/uploads/
+frontend/dist/
