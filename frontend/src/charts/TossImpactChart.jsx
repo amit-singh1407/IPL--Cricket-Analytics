@@ -26,6 +26,9 @@ export default function TossImpactChart({ theme, data = [] }) {
                 borderRadius: '16px',
                 color: isDark ? '#fff' : '#0f172a',
               }}
+              itemStyle={{
+                color: isDark ? '#f8fafc' : '#0f172a'
+              }}
             />
           </PieChart>
         </ResponsiveContainer>

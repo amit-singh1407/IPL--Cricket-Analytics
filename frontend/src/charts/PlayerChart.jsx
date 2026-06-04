@@ -22,6 +22,9 @@ export default function PlayerChart({ theme, data = [] }) {
                 borderRadius: '16px',
                 color: isDark ? '#fff' : '#0f172a',
               }}
+              itemStyle={{
+                color: isDark ? '#f8fafc' : '#0f172a'
+              }}
             />
             <Bar dataKey="value" radius={[12, 12, 0, 0]} fill="url(#playerGradient)" />
             <defs>

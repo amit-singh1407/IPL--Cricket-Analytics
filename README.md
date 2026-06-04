@@ -10,6 +10,7 @@ A production-style full-stack cricket analytics application built with Flask, Re
 - Analytics services for batting average, strike rate, economy rate, win percentage, toss impact, venue performance, and consistency metrics
 - Machine learning prediction module for match winner, predicted score, and top player forecasts
 - Separate deployment paths for Vercel frontend and Render backend
+- Separate deployment paths for GitHub Pages frontend and Render backend
 
 ## Tech Stack
 
@@ -71,6 +72,19 @@ npm install
 npm run dev
 ```
 
+### Frontend on GitHub Pages
+
+- Build the frontend with `VITE_API_URL` set to your deployed backend URL.
+- Deploy with:
+
+```bash
+cd frontend
+npm install
+npm run deploy
+```
+
+- The frontend uses hash-based routing and relative asset paths so it can run from a GitHub Pages project subpath.
+
 ## Environment Variables
 
 ### Backend
@@ -102,8 +116,6 @@ Core endpoints:
 - `GET /analytics/player`
 - `GET /analytics/team`
 - `POST /predict`
-- `POST /login`
-- `POST /register`
 
 ## MongoDB Collections
 
@@ -139,7 +151,14 @@ Collections:
 - Set the backend root directory to `backend`
 - Start command: `gunicorn wsgi:app`
 
-### Frontend on Vercel
+### Frontend on GitHub Pages
+
+- Use the included `frontend/vercel.json`
+- Use the `frontend` package's `deploy` script
+- Set `VITE_API_URL` to the Render backend URL before building
+- Publish the `dist/` output to the `gh-pages` branch and enable GitHub Pages from that branch
+
+### Optional Frontend on Vercel
 
 - Use the included `frontend/vercel.json`
 - Set `VITE_API_URL` to the Render backend URL

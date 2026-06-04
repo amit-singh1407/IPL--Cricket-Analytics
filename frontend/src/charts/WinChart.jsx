@@ -30,6 +30,9 @@ export default function WinChart({ theme, data = [] }) {
                 borderRadius: '16px',
                 color: isDark ? '#fff' : '#0f172a',
               }}
+              itemStyle={{
+                color: isDark ? '#f8fafc' : '#0f172a'
+              }}
             />
             <Area type="monotone" dataKey="value" stroke="#22d3ee" fill="url(#winGradient)" strokeWidth={3} />
           </AreaChart>

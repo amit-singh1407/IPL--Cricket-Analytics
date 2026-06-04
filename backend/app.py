@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+# cspell:ignore sitecustomize
 import sitecustomize  # noqa: F401
 
 from flask import Flask
@@ -22,7 +23,7 @@ def create_app(config_object=Settings):
     app.config["MODEL_DIR"] = Path(app.config["MODEL_DIR"])
     app.config["MODEL_DIR"].mkdir(parents=True, exist_ok=True)
 
-    CORS(app, resources={r"/*": {"origins": app.config["CORS_ORIGINS"]}}, supports_credentials=True)
+    CORS(app, resources={r"/*": {"origins": app.config["CORS_ORIGINS"]}}, supports_credentials=True)  # type: ignore
 
     repository = MongoRepository(app.config["MONGO_URI"], app.config["MONGO_DB_NAME"])
     try:
@@ -36,9 +37,9 @@ def create_app(config_object=Settings):
     app.extensions["prediction_service"] = MatchPredictionService(repository, app.config["MODEL_DIR"])
     app.extensions["scraper_service"] = CricketScraper(repository, user_agent=app.config["SCRAPER_USER_AGENT"])
 
-    api = Api(app)
+    api = Api(app)  # type: ignore
     register_routes(api)
-    register_error_handlers(app)
+    register_error_handlers(app)  # type: ignore
 
     return app
 

@@ -2,35 +2,6 @@
 
 Base URL: `http://localhost:5000`
 
-## Authentication
-
-### `POST /register`
-Creates a new JWT-backed user.
-
-Request body:
-
-```json
-{
-  "name": "Amit Singh",
-  "email": "analyst@example.com",
-  "password": "secret123",
-  "role": "fan",
-  "favoriteTeams": ["csk", "mi"]
-}
-```
-
-### `POST /login`
-Returns an access token and user profile.
-
-Request body:
-
-```json
-{
-  "email": "analyst@example.com",
-  "password": "secret123"
-}
-```
-
 ## Data Endpoints
 
 ### `GET /players`

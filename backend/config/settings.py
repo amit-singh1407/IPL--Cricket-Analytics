@@ -31,14 +31,7 @@ class Settings:
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "jwt-secret-key")
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
     MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "ipl_analytics")
-    CORS_ORIGINS = _unique_items(
-        _parse_csv_env("CORS_ORIGINS", "http://localhost:5173")
-        + [
-            "http://127.0.0.1:5173",
-            "http://localhost:4173",
-            "http://127.0.0.1:4173",
-        ]
-    )
+    CORS_ORIGINS = ["*"]
     MODEL_DIR = Path(os.getenv("MODEL_DIR", str(BASE_DIR / "ml" / "artifacts")))
     SCRAPE_INTERVAL_MINUTES = int(os.getenv("SCRAPE_INTERVAL_MINUTES", "360"))
     SCRAPER_USER_AGENT = os.getenv("SCRAPER_USER_AGENT", "IPL-Analytics-Platform/1.0")

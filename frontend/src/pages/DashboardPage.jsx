@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Activity, MessageSquare, Sparkles, Target, Trophy, Users, Zap } from 'lucide-react';
+import { Activity, Sparkles, Target, Trophy, Users, Zap } from 'lucide-react';
 import { Link, useOutletContext } from 'react-router-dom';
 
 import { mockDashboardData } from '@/data/mockData';
@@ -54,13 +54,7 @@ export default function DashboardPage() {
                 <Target className="h-4 w-4" />
                 Compare players
               </Link>
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                <MessageSquare className="h-4 w-4" />
-                Open chatbot
-              </button>
+
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import { Menu, Search, SunMedium, MoonStar, Bell } from 'lucide-react';
+import { Menu, SunMedium, MoonStar, Bell } from 'lucide-react';
 
 export default function Navbar({ theme, onToggleTheme, onMenuToggle }) {
   const isDark = theme === 'dark';
@@ -6,7 +6,7 @@ export default function Navbar({ theme, onToggleTheme, onMenuToggle }) {
 
   return (
     <header className="sticky top-0 z-30 px-4 pt-4 lg:px-6">
-      <div className={`${shellClass} flex flex-wrap items-center gap-3 rounded-[28px] px-4 py-4`}>
+      <div className={`${shellClass} flex flex-col gap-3 rounded-[28px] px-4 py-4 sm:flex-row sm:items-center sm:flex-wrap sm:justify-between`}>
         <button
           type="button"
           onClick={onMenuToggle}
@@ -20,25 +20,16 @@ export default function Navbar({ theme, onToggleTheme, onMenuToggle }) {
           <div className="hidden h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-sky-500 to-emerald-400 text-sm font-bold text-slate-950 lg:flex">
             IA
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 w-full">
             <p className="text-xs uppercase tracking-[0.35em] text-cyan-300/80">IPL Analytics & Match Insights Platform</p>
-            <h2 className="truncate text-lg font-semibold text-inherit">Advanced cricket dashboard for teams, players, and predictions</h2>
+            <h2 className="text-lg font-semibold leading-tight text-inherit sm:text-xl md:text-2xl">
+              Advanced cricket dashboard for teams, players, and predictions
+            </h2>
           </div>
         </div>
 
-        <label className="flex min-w-[220px] items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
-          <Search className="h-4 w-4 text-cyan-300" />
-          <input
-            type="text"
-            placeholder="Search players, teams, matches"
-            className="w-full bg-transparent outline-none placeholder:text-slate-500"
-          />
-        </label>
-
         <div className="flex items-center gap-2">
-          <span className="hidden rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300 md:inline-flex">
-            Render + Vercel ready
-          </span>
+
           <button
             type="button"
             onClick={onToggleTheme}
